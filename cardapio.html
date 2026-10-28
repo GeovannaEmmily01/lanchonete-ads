@@ -1,0 +1,131 @@
+<header class="cabecalho">
+    <h1>Burger House</h1>
+  
+    <link rel="stylesheet" href="estilos-cardapio.css">
+
+      <!-- Agrupamos os botões da direita em uma div para organizar melhor -->
+    <div style="display: flex; gap: 15px; align-items: center;">
+
+    <!-- Modifique a div existente no cabeçalho para ter um id -->
+<div class="info-carrinho" id="abrir-carrinho" style="cursor: pointer;">
+    🛒 Carrinho: <span id="contador-itens">0</span> itens
+</div>
+
+<!-- NOVO CÓDIGO: Botão que aponta de volta para o index.html -->
+        <a href="index.html" class="btn-sair">Sair</a>
+
+    </div>
+</header>
+
+<main class="vitrine-grid">
+    <article class="card-produto">
+        <img src="img/hamburguer.jpg" alt="X-Burguer Clássico" class="imagem-produto">
+        <div class="conteudo-card">
+            <h3>X-Burguer Clássico</h3>
+            <p>Pão brioche, hambúrguer artesanal de 160g e queijo cheddar.</p>
+            <span class="preco-destaque">R$ 28,00</span>
+            <button class="btn-adicionar">Adicionar</button>
+        </div>
+    </article>
+
+    <article class="card-produto">
+        <img src="img/x-bacon.jpg" alt="X-Bacon" class="imagem-produto">
+        <div class="conteudo-card">
+            <h3>X-Bacon</h3>
+            <p>Pão, hambúrguer, queijo, bacon, presunto, alface e tomate.</p>
+            <span class="preco-destaque">R$ 28,00</span>
+            <button class="btn-adicionar">Adicionar</button>
+        </div>
+    </article>
+
+    <article class="card-produto">
+        <img src="img/x-salada.jpg" alt="X-Salada" class="imagem-produto">
+        <div class="conteudo-card">
+            <h3>X-Salada</h3>
+            <p>pão de hambúrguer, carne bovina grelhada e queijo derretido, acompanhado de alface fresca, rodelas de tomate e maionese.</p>
+            <span class="preco-destaque">R$ 33,00</span>
+            <button class="btn-adicionar">Adicionar</button>
+        </div>
+    </article>
+
+    <article class="card-produto">
+        <img src="img/x-tudo.jpeg" alt="X-Tudo" class="imagem-produto">
+        <div class="conteudo-card">
+            <h3>X-Tudo Especial</h3>
+            <p>Pão, hambúrguer bovino, hambúrguer de frango, bacon, 2 ovos, presunto, queijo, tomate, batata palha e milho verde.</p>
+            <span class="preco-destaque">R$ 34,00</span>
+            <button class="btn-adicionar">Adicionar</button>
+        </div>
+    </article>
+
+    <article class="card-produto">
+        <img src="img/x-frango.jpg" alt="x-frango" class="imagem-produto">
+        <div class="conteudo-card">
+            <h3>x-frango</h3>
+            <p>pão, filé de frango, mussarela, alface, tomate, batata palha e milho.</p>
+            <span class="preco-destaque">R$ 28,00</span>
+            <button class="btn-adicionar">Adicionar</button>
+        </div>
+    </article>
+
+    <article class="card-produto">
+        <img src="img/batatafrita.jpg" alt="Batata Frita" class="imagem-produto">
+        <div class="conteudo-card">
+            <h3>Batata Frita</h3>
+            <p>sequinhas, levemente salgadas e o acompanhamento clássico perfeito para o seu burger.</p>
+            <span class="preco-destaque">R$ 12,00</span>
+            <button class="btn-adicionar">Adicionar</button>
+        </div>
+    </article>
+
+
+    <article class="card-produto">
+        <img src="img/coca-cola.jpg" alt="Coca-cola" class="imagem-produto">
+        <div class="conteudo-card">
+            <h3>Refrigerante gelado</h3>
+            <p>Coca-cola gelada.</p>
+            <span class="preco-destaque">R$ 10,00</span>
+            <button class="btn-adicionar btn-bebida">Adicionar</button>
+        </div>
+    </article>
+
+    <article class="card-produto">
+        <img src="img/suco.jpg" alt="Suco de laranja" class="imagem-produto">
+        <div class="conteudo-card">
+            <h3>Suco de laranja</h3>
+            <p>Suco refrescante de laranja.</p>
+            <span class="preco-destaque">R$ 8,00</span>
+            <button class="btn-adicionar btn-bebida">Adicionar</button>
+        </div>
+    </article>
+
+    <article class="card-produto">
+        <img src="img/agua.jpg" alt="Água mineral" class="imagem-produto">
+        <div class="conteudo-card">
+            <h3>Água mineral</h3>
+            <p>Água mineral.</p>
+            <span class="preco-destaque">R$ 4,00</span>
+            <button class="btn-adicionar btn-bebida">Adicionar</button>
+        </div>
+    </article>
+</div>
+
+    <!-- O Carrinho Lateral -->
+<aside id="sidebar-carrinho" class="carrinho-oculto">
+    <div class="carrinho-cabecalho">
+        <h2>Seu Pedido</h2>
+        <button id="fechar-carrinho" class="btn-fechar">X</button>
+    </div>
+    
+    <!-- Aqui os itens serão injetados pelo JS depois -->
+    <ul id="lista-carrinho" class="carrinho-itens">
+    </ul>
+
+    <div class="carrinho-rodape">
+        <h3>Total: R$ <span id="valor-total">0,00</span></h3>
+        <button class="btn-finalizar">Finalizar Compra</button>
+    </div>
+</aside>
+
+    <script src="interacoes.js"></script>
+</main>

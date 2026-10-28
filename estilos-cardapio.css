@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root {
+    --cor-primaria: #e63946;
+    --cor-fundo: #f7ccdd;
+    --cor-texto: #907954;
+    --cor-card: #ffffff;
+    --sombra-padrao: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    margin: 0;
+}
+
+.vitrine-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centraliza a vitrine */
+}
+
+.card-produto {
+    background-color: var(--cor-card);
+    border-radius: 12px;
+    overflow: hidden; /* Corta o que sobrar fora do border-radius */
+    box-shadow: var(--sombra-padrao);
+    transition: transform 0.3s ease; /* Prepara para a animação */
+}
+
+.card-produto:hover {
+    transform: translateY(-8px); /* Elevação suave ao passar o mouse */
+}
+
+.imagem-produto {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    display: block;
+    border-radius: 12px 12px 0 0;
+}
+
+
+.btn-bebida {
+    background-color: blue;
+    color: white;
+}
+
+/* --- CARRINHO LATERAL (SIDEBAR) --- */
+#sidebar-carrinho {
+    position: fixed; /* Fixa na tela, não rola com o scroll */
+    top: 0;
+    right: 0;
+    width: 350px;
+    height: 100vh; /* 100% da altura da tela */
+    background-color: var(--cor-card);
+    box-shadow: -5px 0 15px rgba(211, 136, 136, 0.2);
+    z-index: 1000; /* Garante que fique por cima de TUDO */
+    
+    /* Organização interna com Flexbox */
+    display: flex;
+    flex-direction: column;
+    
+    /* Animação suave para entrar e sair */
+    transition: transform 0.4s ease-in-out;
+}
+
+/* Estado Padrão: Escondido fora da tela (100% para a direita) */
+.carrinho-oculto {
+    transform: translateX(100%);
+}
+
+/* Estado Ativo: Visível na tela (volta para a posição 0) */
+.carrinho-aberto {
+    transform: translateX(0);
+}
+
+/* Interiores do Carrinho */
+.carrinho-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--cor-secundaria);
+    color: rgb(128, 83, 47);
+}
+
+/* Estilo do novo botão de Sair */
+.btn-sair {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #e63946; /* Vermelho */
+    padding: 8px 15px;
+    border-radius: 6px;
+}
+.btn-sair:hover { background-color: #d62828; }
+.btn-fechar {
+    background: transparent;
+    color: rgb(249, 130, 178);
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.carrinho-itens {
+    padding: 20px;
+    list-style: none; /* Remove as bolinhas da lista */
+    flex-grow: 1; /* Faz a lista crescer e empurrar o rodapé para baixo */
+    overflow-y: auto; /* Permite scroll apenas nos itens se houver muitos */
+}
+
+.carrinho-itens li {
+    padding: 15px 0;
+    border-bottom: 1px solid rgb(128, 83, 47);
+    color: var(--cor-texto);
+    font-weight: 600;
+}
+
+.carrinho-rodape {
+    padding: 20px;
+    border-top: 2px solid #584220;
+}
+
+.btn-finalizar {
+    width: 100%;
+    padding: 15px;
+    background-color: #15803d; /* Verde sucesso */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+
+.btn-adicionar {
+    background-color: rgb(249, 130, 178);
+    color: #ffffff;
+    border: none;
+    padding: 9px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-adicionar:hover {
+    background-color:#584220;
+    transform: translateY(-2px);
+}
+
+.btn-adicionar:active {
+    transform: scale(0.96);
+}
+
+.titulo-bebidas {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Cria uma grade própria para as bebidas com largura controlada */
+.vitrine-bebidas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 280px));
+    gap: 25px;
+    justify-content: start; /* Alinha os cards à esquerda */
+}
+
+/* ==========================================
+   AULA 4: RESPONSIVIDADE (MOBILE)
+   ========================================== */
+
+/* Aplica estas regras APENAS se a tela for menor que 768px (Smartphones) */
+@media (max-width: 768px) {
+    
+    /* Empilha o título, o carrinho e o botão de sair */
+    .cabecalho {
+        flex-direction: column; 
+        gap: 15px;
+        text-align: center;
+    }
+
+    /* Muda a vitrine de 3 colunas para apenas 1 coluna */
+    .vitrine-grid {
+        grid-template-columns: 1fr; 
+        padding: 0 15px; 
+    }
+
+    /* No celular, o carrinho lateral ocupa 100% da tela para não ficar espremido */
+   #sidebar-carrinho {
+    width: 100%;
+    max-width: 100%;
+    height: 100dvh;
+    box-sizing: border-box;
+    overflow-y: auto;
+    padding-bottom: 30px;
+    }
+}
+
+/* Organização de todos os produtos no celular */
+@media screen and (max-width: 600px) {
+    .vitrine-grid,
+    .vitrine-bebidas {
+        display: grid !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        grid-auto-flow: row;
+        width: 100%;
+        max-width: 100%;
+        gap: 20px;
+        padding: 16px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    .vitrine-grid .card-produto,
+    .vitrine-bebidas .card-produto {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .vitrine-grid .imagem-produto,
+    .vitrine-bebidas .imagem-produto {
+        display: block;
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+        box-sizing: border-box;
+    }
+}
